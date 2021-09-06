@@ -6,7 +6,9 @@ function DisplayBoard(game) {
     this.winnerElement = document.querySelector(".winner-display");
     this.gameBoardElement = document.querySelector(".game-board");
     this.playerNameElement = document.querySelector(".player-name");
-    this.btnResetElement = document.querySelector(".btn-new-game-container");
+    this.btnNewGameElement = document.querySelector(".btn-new-game-container");
+    this.btnResetElement = document.querySelector(".btn-reset-container");
+
 
     this.displayCase = (posX, posY) => {
         const boardCase = document.querySelector(`[data-type="${posX}-${posY}"]`);
@@ -52,6 +54,7 @@ function DisplayBoard(game) {
         this.winnerElement.style.display = "none";
         this.gameBoardElement.style.display = "flex";
         this.playerNameElement.style.display = "none";
+        this.btnNewGameElement.style.display = "flex";
         this.btnResetElement.style.display = "flex";
     }
 
@@ -59,6 +62,7 @@ function DisplayBoard(game) {
         this.winnerElement.style.display = "none";
         this.gameBoardElement.style.display = "none";
         this.playerNameElement.style.display = "flex";
+        this.btnNewGameElement.style.display = "none";
         this.btnResetElement.style.display = "none";
     }
 
@@ -66,6 +70,7 @@ function DisplayBoard(game) {
         this.winnerElement.style.display = "flex";
         this.gameBoardElement.style.display = "none";
         this.playerNameElement.style.display = "none";
+        this.btnNewGameElement.style.display = "flex";
         this.btnResetElement.style.display = "flex";
     }
 
