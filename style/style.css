@@ -23,13 +23,3 @@ td {
     border: 1px solid black;
 }
 
-.game-board{
-    display: none;
-}
-
-.btn-new-game-container{
-    display: none;
-}
-.winner-display{
-    display: none;
-}

@@ -30,7 +30,9 @@ function App(playerOne, playerTwo, game, displayGame) {
         /* Check if game end */
         this.play = this.game.resolve();
         if (this.play != "play") {
+            this.currentPlayer.nbrWin += 1;
             this.displayGame.resovleDisplay(this.play, this.currentPlayer)
+            this.displayGame.displayScore();
         } 
 
         this.currentPlayer = this.game.nextPlayer(this.currentPlayer);
@@ -55,6 +57,7 @@ function App(playerOne, playerTwo, game, displayGame) {
     
         /* Display game board */
         this.displayGame.displayGameBoard();
+        this.displayGame.displayScore();
     }
 
     this.resetAll = () => {

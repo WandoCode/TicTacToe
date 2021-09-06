@@ -10,6 +10,9 @@ const displayGame = new DisplayBoard(game);
 
 const app = new App(playerOne, playerTwo, game, displayGame);
 
+/* Initialize game */
+app.resetAll(); 
+
 /* Event Listeners */
 document.querySelector(".board").addEventListener("click", app.mainPlay);
 document.querySelector(".btn-new-game").onclick = () => { app.makeNewGame() };

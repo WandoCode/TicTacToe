@@ -69,6 +69,11 @@ function DisplayBoard(game) {
         this.btnResetElement.style.display = "flex";
     }
 
+    this.displayScore = () => {
+        document.querySelector(".player-one-score").innerHTML = `${this.game.playerOne.str()}: ${this.game.playerOne.nbrWin}`;
+        document.querySelector(".player-two-score").innerHTML = `${this.game.playerTwo.str()}: ${this.game.playerTwo.nbrWin}`;
+    }
+
 
 }
 
