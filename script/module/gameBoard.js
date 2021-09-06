@@ -1,24 +1,29 @@
-let Game = () => {
+function Game() {
     this.gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
 
-    this.fillBoardPosition = function (posX, posY, filling) {
+    this.getValueAtPosition = function(posX, posY) {
+        return this.gameBoard[posY][posX];
+    }
+
+    this.setValueAtPosition = function (posX, posY, filling) {
         this.gameBoard[posY][posX] = filling;
     }
 
     this.isWin = function () {
         /* Look for 3 same symbols aligned */
-
         for (let i = 0; i < 3; i++){
             if ((this.gameBoard[0][i] == this.gameBoard[1][i]) && (this.gameBoard[0][i] == this.gameBoard[2][i])){
-                return true;
+                return (this.gameBoard[0][i] == 0) ? false : true;
             }
         }
 
         for (let j = 0; j < 3; j++){
             if ((this.gameBoard[j][0] == this.gameBoard[j][1]) && (this.gameBoard[j][0] == this.gameBoard[j][2])){
-                return true;
+                return (this.gameBoard[j][0] == 0) ? false : true;
             }
         }
+
+        if (this.gameBoard[1][1] == 0) return false;
 
         if ((this.gameBoard[0][0] == this.gameBoard[1][1]) && (this.gameBoard[0][0] == this.gameBoard[2][2])){
             return true;

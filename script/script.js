@@ -1,5 +1,6 @@
-import {Game} from './gameBoard.js';
+import {Game} from './module/gameBoard.js';
+import {DisplayBoard} from './module/gameDisplay.js';
 
-let Player = (name) => {
-    this.name = name;
-}
+const game = new Game();
+let boardArray = game.gameBoard;
+const displayGame = new DisplayBoard(boardArray);
