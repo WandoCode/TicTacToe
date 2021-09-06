@@ -54,7 +54,22 @@ function makeNewGame() {
     currentPlayer = playerOne;
 }
 
+function changeName(e, player) {
+    e.preventDefault();
+
+    const newName = document.forms[`getName${player}`]["name-player"].value;
+
+    if (player == "PlayerOne") {
+        playerOne.name = newName;
+    }
+    if (player == "PlayerTwo") {
+        playerTwo.name = newName;
+    }
+}
 
 /* Event Listeners */
 document.querySelector(".board").addEventListener("click", cbClickedCase);
-document.querySelector(".btn-reset").onclick = makeNewGame;
+document.querySelector(".btn-reset").onclick = () => { makeNewGame() };
+document.querySelector(".getNamePlayerOne").onsubmit = (e) => {changeName(e, 'PlayerOne')};
+document.querySelector(".getNamePlayerTwo").onsubmit = (e) => {changeName(e, 'PlayerTwo')};
+
