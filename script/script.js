@@ -1,12 +1,8 @@
-import { Game}  from './module/gameBoard.js';
+import { Game } from './module/gameBoard.js';
 import { DisplayBoard } from './module/gameDisplay.js';
 import { Player } from './module/player.js';
 
-/*Event Listeners */
-document.querySelector(".board").addEventListener("click", cbClickedCase);
-
 /* Initialize 1st game */
-
 const playerOne = new Player("Player 1", "x");
 const playerTwo = new Player("Player 2", "o");
 const game = new Game(playerOne, playerTwo);
@@ -37,6 +33,7 @@ function cbClickedCase(event) {
     /* Check if game is won */
     play = !game.isWin();
     if (!play) {
+        displayGame.hideGameBoard();
         displayGame.displayWinner(currentPlayer);
     }
     
@@ -48,3 +45,14 @@ function playCase(posX, posY) {
     currentPlayer = game.nextPlayer(currentPlayer);
     displayGame.displayCase(posX, posY);
 }
+
+function makeNewGame(e) {
+    /* Reset the game */
+    console.log(1);
+    displayGame.resetGameBoard();
+}
+
+
+/* Event Listeners */
+document.querySelector(".board").addEventListener("click", cbClickedCase);
+document.querySelector(".btn-reset").onclick = makeNewGame;

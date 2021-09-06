@@ -46,6 +46,10 @@ function Game(playerOne, playerTwo) {
 
         return false;
     }
+
+    this.reset = () => {
+        this.gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+    }
     
 }
 
