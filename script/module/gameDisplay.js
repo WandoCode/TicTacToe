@@ -1,9 +1,9 @@
-function DisplayBoard(boardArray) {
-    this.boardArray = boardArray;
-
+function DisplayBoard(game) {
+    this.game = game;
+    this.boardArray = game.gameBoard;
     this.displayCase = (posX, posY) => {
         const boardCase = document.querySelector(`[data-type="${posX}-${posY}"]`);
-        boardCase.innerHTML = boardArray[posY][posX];
+        boardCase.innerHTML = this.game.getValueAtPosition(posX, posY);
     }
 }
 

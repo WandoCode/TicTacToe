@@ -1,5 +1,16 @@
-function Game() {
+function Game(playerOne, playerTwo) {
+
     this.gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+    this.playerOne = playerOne;
+    this.playerTwo = playerTwo;
+
+    this.nextPlayer = function(player){
+        return player == this.playerOne ? this.playerTwo : this.playerOne;
+    }
+
+    this.checkIfCaseFree = function (posX, posY) {
+        return (this.getValueAtPosition(posX, posY) == 0) ? true : false;
+    }
 
     this.getValueAtPosition = function(posX, posY) {
         return this.gameBoard[posY][posX];
@@ -35,7 +46,8 @@ function Game() {
 
         return false;
     }
+    
 }
 
 
-export {Game}
+export {Game};
