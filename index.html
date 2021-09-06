@@ -9,23 +9,28 @@
     <title>TicTacToe</title>
 </head>
 <body>
-    <form name="getNamePlayerOne" class="getNamePlayerOne">
-        <label for="name-player"></label>
-        <input type="text" name="name-player" maxlength="12" placeholder="Player 1">
-        <input type="submit">
-    </form>
-
-    <form name="getNamePlayerTwo" class="getNamePlayerTwo">
-        <label for="name-player"></label>
-        <input type="text" name="name-player" maxlength="12" placeholder="Player 2">
-        <input type="submit">
-    </form>
+    <div class="player-name">
+        <form name="getNamePlayer" class="getNamePlayer">
+            <label for="name-player-1"></label>
+            <input type="text" name="name-player-1" maxlength="12" placeholder="Player 1">
+            <label for="name-player-2"></label>
+            <input type="text" name="name-player-2" maxlength="12" placeholder="Player 2">
+            <input type="submit">
+        </form>
+    </div>
 
     <div class="btn-reset-container">
-        <button class="btn-reset btn">New game!</button>
+        <button class="btn-reset btn">Reset</button>
     </div>
+    
+    <div class="btn-new-game-container">
+        <button class="btn-new-game btn">New game!</button>
+    </div>
+
     <div class="winner-display"></div>
+
     <div class="game-board">
+        
         <table class="board">
             <tr>
                 <td data-type="0-0"></td>
