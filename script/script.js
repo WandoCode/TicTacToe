@@ -9,14 +9,14 @@ const game = new Game(playerOne, playerTwo);
 const displayGame = new DisplayBoard(game);
 
 let currentPlayer = playerOne;
-let play = true;
+let play = "play";
 
 /* Helper functions */
 function cbClickedCase(event) {
     /* CB fct. When the gameBoard is clicked */
 
     /* Check if game is running*/
-    if (!play) return;
+    if (play != "play") return;
 
     /* Get infos about the click */
     const pos = event.target.attributes["data-type"].value.split("-");
@@ -30,26 +30,28 @@ function cbClickedCase(event) {
             playCase(posX, posY);
         }
     }
-    /* Check if game is won */
-    play = !game.isWin();
-    if (!play) {
-        displayGame.hideGameBoard();
-        displayGame.displayWinner(currentPlayer);
-    }
-    
+
+    /* Check if game end */
+    play = game.resolve();
+    if (play != "play") {
+        displayGame.resovleDisplay(play, currentPlayer)
+    } 
+
+    currentPlayer = game.nextPlayer(currentPlayer);
 }
 
 function playCase(posX, posY) {
     /* Play the round for the player */
     game.setValueAtPosition(posX, posY, currentPlayer.symbol);
-    currentPlayer = game.nextPlayer(currentPlayer);
+    game.coupJoue += 1;
     displayGame.displayCase(posX, posY);
 }
 
-function makeNewGame(e) {
+function makeNewGame() {
     /* Reset the game */
-    console.log(1);
     displayGame.resetGameBoard();
+    play = "play";
+    currentPlayer = playerOne;
 }
 
 

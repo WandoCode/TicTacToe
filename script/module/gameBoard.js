@@ -3,6 +3,7 @@ function Game(playerOne, playerTwo) {
     this.gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
     this.playerOne = playerOne;
     this.playerTwo = playerTwo;
+    this.coupJoue = 0;
 
     this.nextPlayer = function(player){
         return player == this.playerOne ? this.playerTwo : this.playerOne;
@@ -47,8 +48,21 @@ function Game(playerOne, playerTwo) {
         return false;
     }
 
+    this.resolve = () => {
+        if (this.isWin()) {
+            return "end";
+        }
+        else if (this.coupJoue == 9) {
+            return "tie";
+        }
+        else {
+            return "play";
+        }
+    }
+
     this.reset = () => {
         this.gameBoard = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+        this.coupJoue = 0;
     }
     
 }

@@ -7,7 +7,8 @@ function DisplayBoard(game) {
 
     this.displayCase = (posX, posY) => {
         const boardCase = document.querySelector(`[data-type="${posX}-${posY}"]`);
-        if ( this.game.getValueAtPosition(posX, posY) == 0) {
+
+        if (this.game.getValueAtPosition(posX, posY) == 0) {
             boardCase.innerHTML = "";
         }
         else {
@@ -19,16 +20,28 @@ function DisplayBoard(game) {
         this.gameBoardElement.style.display = "none";
     }
 
-    this.displayWinner = (winner) => {
+    this.resovleDisplay = (play, winner) => {
+        let textwinner = "";
+
         this.winnerElement.style.display = "block";
-        this.winnerElement.innerHTML = `${winner.str()} won!`;
+        this.hideGameBoard();
+
+        if (play == "tie") {
+            textwinner = "Tie game!";
+        }
+        else{
+            textwinner = `${winner.str()} won!`;
+        }
+        
+        this.winnerElement.innerHTML = textwinner;
     }
+
 
     this.resetGameBoard = () => {
         this.game.reset();
         this.boardArray = game.gameBoard;
 
-        this.gameBoardElement.style.display = "block";
+        this.gameBoardElement.style.display = "flex";
         this.winnerElement.style.display = "none";
 
         for (let i = 0; i < 3; i++){
@@ -37,6 +50,8 @@ function DisplayBoard(game) {
             }
         }
     }
+
+
 }
 
 export {DisplayBoard}
