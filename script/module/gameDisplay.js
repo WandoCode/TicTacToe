@@ -6,8 +6,8 @@ function DisplayBoard(game) {
     this.winnerElement = document.querySelector(".winner-display");
     this.gameBoardElement = document.querySelector(".game-board");
     this.playerNameElement = document.querySelector(".player-name");
-    this.btnNewGameElement = document.querySelector(".btn-new-game-container");
-    this.btnResetElement = document.querySelector(".btn-reset-container");
+    this.menuElement = document.querySelector(".menu-game");
+    this.vsElement = document.querySelector(".vs-container");
 
 
     this.displayCase = (posX, posY) => {
@@ -16,8 +16,15 @@ function DisplayBoard(game) {
         if (this.game.getValueAtPosition(posX, posY) == 0) {
             boardCase.innerHTML = "";
         }
-        else {
-            boardCase.innerHTML = this.game.getValueAtPosition(posX, posY);
+        else if (this.game.getValueAtPosition(posX, posY) == "x"){
+            let imgElement= document.createElement("IMG");
+            imgElement.setAttribute("src", "./Static/croix.svg");
+            boardCase.appendChild(imgElement);
+        }
+        else if (this.game.getValueAtPosition(posX, posY) == "o"){
+            let imgElement = document.createElement("IMG");
+            imgElement.setAttribute("src", "./Static/circle.svg");
+            boardCase.appendChild(imgElement);
         }
     }
 
@@ -54,32 +61,31 @@ function DisplayBoard(game) {
         this.winnerElement.style.display = "none";
         this.gameBoardElement.style.display = "flex";
         this.playerNameElement.style.display = "none";
-        this.btnNewGameElement.style.display = "flex";
-        this.btnResetElement.style.display = "flex";
+        this.menuElement.style.display = "flex";
+        this.vsElement.style.display = "flex";
     }
 
     this.displayPlayer = () => {
         this.winnerElement.style.display = "none";
         this.gameBoardElement.style.display = "none";
         this.playerNameElement.style.display = "flex";
-        this.btnNewGameElement.style.display = "none";
-        this.btnResetElement.style.display = "none";
+        this.menuElement.style.display = "none";
+        this.vsElement.style.display = "none";
     }
 
     this.displayWinner = () => {
         this.winnerElement.style.display = "flex";
         this.gameBoardElement.style.display = "none";
         this.playerNameElement.style.display = "none";
-        this.btnNewGameElement.style.display = "flex";
-        this.btnResetElement.style.display = "flex";
+        this.menuElement.style.display = "flex";
+        this.vsElement.style.display = "none";
+
     }
 
     this.displayScore = () => {
-        document.querySelector(".player-one-score").innerHTML = `${this.game.playerOne.str()}: ${this.game.playerOne.nbrWin}`;
-        document.querySelector(".player-two-score").innerHTML = `${this.game.playerTwo.str()}: ${this.game.playerTwo.nbrWin}`;
+        document.querySelector(".player-one-score").innerHTML = `${this.game.playerOne.str()} - ${this.game.playerOne.nbrWin}`;
+        document.querySelector(".player-two-score").innerHTML = `${this.game.playerTwo.str()} - ${this.game.playerTwo.nbrWin}`;
     }
-
-
 }
 
 export {DisplayBoard}

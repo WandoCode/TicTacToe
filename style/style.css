@@ -3,7 +3,13 @@
 }
 
 body {
+    font-family: 'Permanent Marker', cursive;
     height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .game-board{
@@ -14,12 +20,120 @@ body {
 .board{
     height: 100%;
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+
 }
 
 td {
     height: 30%;
     width: 30%;
-    border: 1px solid black;
+    text-align: center;
+    padding-top: 8px;
+    background-color: rgb(255, 225, 185);
+    border-radius: 40px;
+    border: white 8px solid;
+}
+
+.vs-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 50px;
+}
+
+
+header{
+    height: 25%;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+td img {
+    width: 80%;
+    height: 80%;
+}
+
+.player-one-score{
+    background-color: rgb(255, 201, 131);
+}
+
+.player-two-score{
+    background-color: rgb(255, 201, 131);
+}
+
+.score{
+    padding: 20px 50px;
+    border: 3px solid black;
+    border-radius: 20px;
+}
+
+.menu-game{
+    width: 100%;
+    height: 15%;
+    justify-content: space-between;
+}
+
+.btn{
+    width: 50%;
+    border: none;
+    height: 100%;
+    font-family: 'Permanent Marker', cursive;  
+    font-size: 50px;
+    background-color: white;
+    transition: font-size 0.3s;
+    align-self: center;
+}
+
+.btn:hover{
+    font-size: 65px;
+
+}
+
+footer{
+    padding-top: 20px;
+    font-size: 10px;
+}
+
+.winner-display{
+    font-size: 80px;
+}
+
+.getNamePlayer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 40px
+}
+
+.name-input{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-seperator{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-name{
+    border: none;
+    border-bottom: rgb(214, 214, 214) 1px solid;
+    height: 50px;
+    font-family: 'Permanent Marker', cursive;  
+    font-size: 40px;
+    width: 300px;
+    text-align: center;
+    outline: none;
 }
 
